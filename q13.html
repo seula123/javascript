@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #num{
+            font-size: 10em;
+            font-weight: bold;
+            text-align: center;
+            width:250px;
+            display: block;
+            margin: 100px auto;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <input type ="text" name="num" id="num" value="10">
+    </div>
+    <div>
+        <!-- <div class="script script42_2" style="left: 170px; top: 460px;"></div> -->
+        <!--    &it;는 < 이걸 나타내고  ,  &gt;는  > 이걸 나타낸다.  -->
+        <div style="left:35px; top: 110px;">&it;input type ='text'&gt;입니다<br>테두리를 감췄습니다.</div>
+    </div>
+
+    <script>
+
+        var n = 10;
+        
+        var timer = setinterval(function(){
+            n--;
+            //문서에서 num이라는 id를 가진 요소의 value 값을 n으로 설정
+            document.all.num.value =n;
+
+            if(n==0) {
+                //이전에 설정한 타이머를 해제
+                clearInterval(timer);
+                //구글로 이동
+                location.href="http://google.com";
+            }
+        },1000);
+
+        // 사용자가 키보드에서 키를 누를 때 이벤트 실행
+        window.onkeydown = function() {
+            //keycode=27(ESC) 누를때
+            if(event.keyCode ==27){
+                // 타이머를 중지
+                clearInterval(timer);
+                document.body.bgColor = "tomato";
+            }
+
+        };
+        
+        
+        
+    
+
+
+
+    </script>
+
+
+</body>
+</html>

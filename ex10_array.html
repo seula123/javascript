@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- ex10_array.html -->
+    <!-- 
+
+        자바스크립트 배열
+        - Array(외형) + ArrayList(성질 - 길이 가변, 자료형 Object)
+
+     -->
+
+
+     <script>
+
+        // int[]nums = new int [3]; ->자바
+        var nums = new Array();
+
+        nums[0] = 100;
+        nums[1] = 200;
+        nums[2] = 300;
+
+        // nums[5] = 500;  //비추천!!
+
+        for(var i=0; i<nums.length; i++){
+            console.log(i,nums[i]);
+        }
+
+        console.clear();
+
+    //현재 시각
+    var now = new Date(); //new 생성자함수();
+        console.log(now);
+        console.log(now.toString());
+        console.log(typeof now); //object
+
+        //요소 추출
+        //- c.get(Calendar.YEAR)
+
+        console.log(now.getYear());         //123
+        console.log(now.getFullYear());     //2023
+        console.log(now.getMonth());        //
+        console.log(now.getDate());
+        console.log(now.getHours());
+        console.log(now.getMinutes());
+        console.log(now.getSeconds());
+        console.log(now.getMilliseconds());
+        console.log(now.getTime());
+     </script>
+
+</body>
+</html>
