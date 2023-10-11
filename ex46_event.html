@@ -6,9 +6,9 @@
     <title>Document</title>
     <style>
         .box { padding: 50px; }
-        #p1 { background-color: lavender; }
-        #p2 { background-color: lightcyan; }
-        #p3 { background-color: #FFFF33; }
+        #p1 { background-color: tomato; }
+        #p2 { background-color: gold; }
+        #p3 { background-color: cornflowerblue; }
     </style>
 </head>
 <body>
@@ -44,36 +44,36 @@
             alert('body');
         }; */
 
-        p1.onclick = function() {
-            alert('연보라');
-            event.cancelBubble = true; //이벤트 버블링을 중단하는 코드
-        };
+        // p1.onclick = function() {
+        //     alert('연보라');
+        //     event.cancelBubble = true; //이벤트 버블링을 중단하는 코드
+        // };
         
-        p2.onclick = function() {
-            alert('연하늘');
-            event.cancelBubble = true; //이벤트 버블링을 중단하는 코드
-        };
+        // p2.onclick = function() {
+        //     alert('연하늘');
+        //     event.cancelBubble = true; //이벤트 버블링을 중단하는 코드
+        // };
         
-        p3.onclick = function() {
-            alert('연노랑');
-            event.cancelBubble = true; //이벤트 버블링을 중단하는 코드
-        };
-
-        
-        //window의 키 이벤트는 모든 상황에서 늘 발생함
-        // window.onkeydown = function() {
-        //     if (event.keyCode == 37) {
-        //         document.getElementById('cat1').width -= 10;
-        //     } else if (event.keyCode == 39) {
-        //         document.getElementById('cat1').width += 10;
-        //     } else if (event.keyCode == 65) {
-        //         location.href = 'https://google.com';
-        //     }
+        // p3.onclick = function() {
+        //     alert('연노랑');
+        //     event.cancelBubble = true; //이벤트 버블링을 중단하는 코드
         // };
 
-        // document.getElementById('txt1').onkeydown = function() {
-        //     // event.cancelBubble = true;
-        // };
+        
+            //window의 키 이벤트는 모든 상황에서 늘 발생함
+            window.onkeydown = function() {
+            if (event.keyCode == 37) {
+                document.getElementById('cat1').width -= 10;
+            } else if (event.keyCode == 39) {
+                document.getElementById('cat1').width += 10;
+            } else if (event.keyCode == 65) {
+                location.href = 'https://google.com';
+            }
+        };
+
+        document.getElementById('txt1').onkeydown = function() {
+            event.cancelBubble = true;
+        };
 
 
 
@@ -87,19 +87,47 @@
         // - 이벤트 버블링
         // - 이벤트 터널링
 
+
+        // p1.addEventListener(type, function() {}, false)
+
         
+        // p1.addEventListener('click',function(){
+        //     alert('빨강');
+        // },true);
+
+        // p2.addEventListener('click',function(){
+        //     alert('노랑');
+        // },true);
+
+        // p3.addEventListener('click',function(){
+        //     alert('파랑');
+        // },true);
+
+
+
+
+
         p1.addEventListener('click',function(){
             alert('빨강');
-        });
+        },);
 
         p2.addEventListener('click',function(){
             alert('노랑');
-        });
+        },);
 
         p3.addEventListener('click',function(){
             alert('파랑');
+
+
+            event.cancelBubble = true;
+            event.stopPropagation();  //이벤트 전파 중지
+
         });
         
+
+
+
+
 
 
 
