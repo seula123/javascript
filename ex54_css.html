@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: lavender;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex54_css.html -->
+    
+    <div id="box1" class="box"></div>
+
+    <script>
+        
+        const box1 = document.getElementById('box1');
+        let isDown = false;
+
+        //Drag & Drop > 개체 이동 인터페이스
+
+        window.onmousedown = function() {
+
+            //누른 대상 > 빈영역인지 상자인지 판단!
+            if(event.target.id =='box1'){
+            isDown = true;
+        }
+
+        };
+        
+        window.onmousemove = function() {
+
+            if(isDown) {
+                box1.style.left = event.clientX + 'px';
+                box1.style.top = event.clientY + 'px';
+            }
+        };
+
+        window.onmouseup = function() {
+            isDown = false;
+        };
+
+
+    </script>
+</body>
+</html>

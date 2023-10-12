@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+
+        .one {font-size: 3rem;}
+        .two {color: cornflowerblue;}
+        .three {text-decoration: underline;}
+    </style>
+    <script src="https://kit.fontawesome.com/b001d4dbad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- ex51_css.html -->
+
+    <h1>CSS</h1>
+
+    <input type="button" value="버튼" id="btn1">
+    <hr>
+    <div id="box1">상자</div>
+
+    <hr>
+
+    <h1>텍스트</h1>
+
+<div class="tool">
+        <button type="button" id="btn2"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+        <button type="button" id="btn3"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+    </div>
+    </div>
+    <p id="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate soluta officia quidem quod porro sint corrupti libero eveniet 
+        ullam sunt praesentium beatae, quos minus eius, vero fugit minima ipsam. Necessitatibus dolor nesciunt praesentium officia placeat quaerat, 
+        labore a facere repudiandae reiciendis alias minima illo harum incidunt exercitationem modi soluta fugit recusandae, aliquid sunt saepe ipsa? 
+        Officia laudantium culpa obcaecati veritatis similique iusto eius rem voluptatem fugit aliquid aliquam sed ipsa nemo libero, quisquam inventore 
+        aperiam atque sapiente nostrum facere placeat eaque. Quia debitis voluptatibus placeat laudantium, voluptate consequatur unde ullam id fugit, 
+        porro non. Aliquid, debitis officiis! Inventore laboriosam est nulla. Deleniti, fuga. Deleniti, odio incidunt odit aperiam, aut voluptatem iste 
+        sequi cumque architecto, eaque autem impedit necessitatibus asperiores alias repellat? Deleniti dolorem quia tempora, quasi dignissimos animi 
+        quos fugit excepturi beatae, aspernatur voluptate nobis voluptatibus placeat! Aliquid velit ipsum eos iste dolore quidem libero tenetur commodi 
+        eius possimus neque maiores cumque asperiores iure rerum blanditiis, totam tempore? Id mollitia labore eum dolorem eius perferendis ab, reiciendis 
+        facere amet quod quisquam odit magni nihil repudiandae. Explicabo recusandae iusto consectetur blanditiis veniam voluptatem facere praesentium.
+        Quaerat quisquam dolor ut nobis deserunt delectus sint iure sed cum deleniti, quam cupiditate eum tempora sapiente, maiores dolores doloribus odit
+        amet at ipsam numquam nemo ipsa culpa! Ipsum eaque alias a laboriosam libero quasi sed at. Possimus nihil voluptatem, quasi magni autem sint 
+        incidunt hic aliquid quia sed dolore laudantium laboriosam iste omnis rem id expedita optio neque porro sunt consectetur. Harum qui neque fugiat
+        totam architecto eos incidunt dignissimos corporis ducimus libero at veritatis quas asperiores aliquam cupiditate odio, ad reprehenderit iusto sit
+        quam eum perferendis in?Suscipit corporis sit debitis magnam cumque qui odit excepturi corrupti praesentium, illo commodi aspernatur totam a modi
+        rem iste. Dolor, nequevoluptate nisi veritatis porro nobis deserunt!
+
+
+    </p>
+
+    <script>
+        const btn1 = document.getElementById('btn1');
+        const box1 = document.getElementById('box1');
+
+        btn1.addEventListener('click', function() {
+
+            /* 
+                JavaScript로 CSS 조작
+                1. 모든 태그는 style 속성 제공(인라인 스타일 시트) > 자바스크립트 style 프로퍼티 제공
+                2. class 조작
+                    - className 프로퍼티
+                    - ClassList 프로퍼티
+            */
+            
+            // btn1.value = 'Button';
+            // box1.style = 'color: blue'; //BOM
+            // box1.setAttribute('style', 'color:gold'); //DOM
+            
+            /* //조직적인 관리 어려움
+            box1.innerHTML = '<input>'
+            box1.style = 'color: blue; font-size: 2rem'; */
+
+            //style 프로퍼티 > 접근 가능 속성 > 프로퍼티(배열) 제공
+            // box1.style = 'color: blue';
+            // box1.style.color = 'blue';
+            // box1.style.fontSize = '2rem'
+            // box1.style.backgroundColor = 'lavender';
+
+            // box1.style['color'] = 'coral';
+            // box1.style['font-size'] = '2rem';
+            // box1.style['background-image'] = 'url(../asset/images/catty01.png)';
+        
+            
+            //상자의 현재 너비?
+            // box1.style.width = '300px';
+            alert(box1.style.width)
+
+
+            //버튼 클릭 > 상자의 너비 > 현재 너비 + 50px
+            // box1.style.width = parseInt(box1.style.width) + 50+'px';
+
+            // CSS 적용 방식 무관 > 현재 객체에 적용된 모든 CSS 속성을 반환
+            const list = window.getComputedStyle(box1);
+
+            alert(list.width);
+            alert(list.getPropertyValue('width'));
+        
+        
+        
+        
+        
+        
+        
+        });//btn1.onclick
+
+
+
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const content = document.getElementById('content');
+
+        let size = 16;
+
+        btn2.addEventListener('click',function(){
+            // size--;
+            // content.style.fontSize = size + 'px';
+
+            // <p class='one two'>
+            // content.className ='one two';
+
+            content.classList.add('one');
+            content.classList.add('two');
+            
+            
+        });
+        
+        
+        btn3.addEventListener('click',function(){
+            // size++;
+            // content.style.fontSize = size + 'px';
+
+            //<p class="one twothree">
+            //<p class="one two three">
+            // content.className +=' three';
+
+            content.classList.add('three');
+            content.classList.remove('two');
+        });
+
+
+
+    </script>
+
+
+</body>
+</html>
